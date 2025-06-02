@@ -16,10 +16,10 @@ lint:
 
 test:
 	uv pip install pytest
-	pytest
+	.venv/bin/pytest
 
 test-coverage:
 	uv pip install pytest-cov
-	pytest --cov=gendiff --cov-report xml
+	.venv/bin/pytest --cov=gendiff --cov-report xml
 
 .PHONY: install test lint selfcheck check build

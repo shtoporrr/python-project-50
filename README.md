@@ -1,38 +1,38 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/shtoporrr/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/shtoporrr/python-project-50/actions)
+[![Maintainability](https://codeclimate.com/github/shtoporrr/python-project-50/maintainability)](https://codeclimate.com/github/shtoporrr/python-project-50/maintainability)
+[![Test Coverage](https://codeclimate.com/github/shtoporrr/python-project-50/test_coverage)](https://codeclimate.com/github/shtoporrr/python-project-50/test_coverage)
+[![Python CI](https://github.com/shtoporrr/python-project-50/actions/workflows/python-ci.yml/badge.svg)](https://github.com/shtoporrr/python-project-50/actions/workflows/python-ci.yml)
 
-### Description
-The `gendiff` utility compares two configuration files and shows the difference. Currently supports JSON format.
+# Вычислитель отличий
 
-### Installation
+Утилита для поиска отличий между конфигурационными файлами.
+
+## Установка
+
 ```bash
 pip install hexlet-code
 ```
 
-### Usage
-As CLI utility:
-```bash
-$ gendiff file1.json file2.json
-{
-    host: hexlet.io
-  - follow: false
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-}
-```
+## Использование
 
-As library in your code:
+### Как библиотека
+
 ```python
 from gendiff import generate_diff
 
-diff = generate_diff('file1.json', 'file2.json')
+diff = generate_diff(file_path1, file_path2)
 print(diff)
 ```
 
-### Features
-- Compares two JSON files
-- Shows differences in a readable format
-- Can be used both as CLI tool and library
-- Supports different output formats (default: stylish)
+### Как CLI-утилита
+
+```bash
+gendiff path/to/file1.json path/to/file2.json
+```
+
+## Возможности
+
+- Поддержка форматов: JSON
+- Генерация отчета в виде plain text
+- Поддержка сравнения плоских файлов

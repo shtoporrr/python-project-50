@@ -6,10 +6,10 @@ def generate_diff(first_file, second_file):
     with open(first_file) as f1, open(second_file) as f2:
         data1 = json.load(f1)
         data2 = json.load(f2)
-    
+
     all_keys = sorted(set(data1.keys()) | set(data2.keys()))
     diff = []
-    
+
     for key in all_keys:
         if key not in data1:
             diff.append(f'  + {key}: {str(data2[key]).lower()}')
@@ -20,7 +20,7 @@ def generate_diff(first_file, second_file):
         else:
             diff.append(f'  - {key}: {str(data1[key]).lower()}')
             diff.append(f'  + {key}: {str(data2[key]).lower()}')
-    
+
     return '{\n' + '\n'.join(diff) + '\n}'
 
 

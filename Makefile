@@ -12,7 +12,7 @@ package-install:
 
 lint:
 	uv pip install flake8
-	flake8 gendiff
+	.venv/bin/flake8 gendiff
 
 test:
 	uv pip install pytest

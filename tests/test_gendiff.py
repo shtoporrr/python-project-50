@@ -12,4 +12,4 @@ def test_generate_diff_json():
   + timeout: 20
   + verbose: true
 }'''
-    assert generate_diff(file1_path, file2_path) == expe
+    assert generate_diff(file1_path, file2_path) == expected

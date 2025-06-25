@@ -4,35 +4,39 @@
 [![Test Coverage](https://qlty.sh/badges/e6e05074-620c-46f8-a1da-8e3ea73cb832/test_coverage.svg)](https://qlty.sh/gh/shtoporrr/projects/python-project-50)
 [![Python CI](https://github.com/shtoporrr/python-project-50/actions/workflows/python-ci.yml/badge.svg)](https://github.com/shtoporrr/python-project-50/actions/workflows/python-ci.yml)
 
-# Вычислитель отличий
+# Difference Generator (Gendiff)
 
-Утилита для поиска отличий между конфигурационными файлами.
+A command-line utility that determines the difference between two configuration files.
 
-## Установка
+## Features
 
-```bash
-pip install hexlet-code
-```
+- Supports JSON and YAML formats
+- Shows differences in a structured format
+- Simple and easy to use
 
-## Использование
-
-### Как библиотека
-
-```python
-from gendiff import generate_diff
-
-diff = generate_diff(file_path1, file_path2)
-print(diff)
-```
-
-### Как CLI-утилита
+## Installation
 
 ```bash
-gendiff path/to/file1.json path/to/file2.json
+make install
 ```
 
-## Возможности
+## Usage
 
-- Поддержка форматов: JSON
-- Генерация отчета в виде plain text
-- Поддержка сравнения плоских файлов
+```bash
+gendiff file1.json file2.json
+gendiff file1.yml file2.yml
+```
+
+### Example
+
+```
+$ gendiff file1.json file2.json
+{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}
+```

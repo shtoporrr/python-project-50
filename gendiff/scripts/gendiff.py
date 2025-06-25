@@ -1,18 +1,22 @@
 import argparse
 from gendiff.parser import parse_file
 from gendiff.diff_builder import build_diff
-from gendiff.formatters.stylish import format_diff
+from gendiff.formatters.stylish import format_diff as format_stylish
+from gendiff.formatters.plain import format_diff as format_plain
 
 
-def generate_diff(first_file, second_file, format_name='stylish'):
+def generate_diff(file_path1, file_path2, format_name='stylish'):
     """Generate diff between two files."""
-    data1 = parse_file(first_file)
-    data2 = parse_file(second_file)
+    data1 = parse_file(file_path1)
+    data2 = parse_file(file_path2)
 
     diff = build_diff(data1, data2)
 
     if format_name == 'stylish':
-        return format_diff(diff)
+        return format_stylish(diff)
+    elif format_name == 'plain':
+        result = format_plain(diff)
+        return '\n'.join(result)
     else:
         raise ValueError(f"Unsupported format: {format_name}")
 
@@ -23,8 +27,13 @@ def main():
     )
     parser.add_argument('first_file')
     parser.add_argument('second_file')
+    parser.add_argument(
+        '-f', '--format',
+        default='stylish',
+        help='set format of output (default: stylish)'
+    )
     args = parser.parse_args()
-    diff = generate_diff(args.first_file, args.second_file)
+    diff = generate_diff(args.first_file, args.second_file, args.format)
     print(diff)
 
 

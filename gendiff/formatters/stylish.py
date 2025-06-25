@@ -39,6 +39,8 @@ def format_node(node, indent, depth):
     elif node_type == 'nested':
         nested_diff = format_diff(node['children'], depth + 1)
         return f"{indent}    {key}: {nested_diff}"
+    else:
+        raise ValueError(f"Unknown node type: {node_type}")
 
 
 def format_diff(diff, depth=0):

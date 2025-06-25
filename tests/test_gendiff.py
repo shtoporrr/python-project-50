@@ -81,9 +81,13 @@ def test_generate_diff_nested_json():
 
 
 def test_generate_diff_nested_yaml():
-    """Test generate_diff function with nested YAML files."""
-    result = generate_diff('tests/fixtures/nested_file1.yml', 'tests/fixtures/nested_file2.yml')
-    expected = '''{
+    """Test generate_diff with nested YAML files."""
+    file1_path = 'tests/fixtures/nested_file1.yml'
+    file2_path = 'tests/fixtures/nested_file2.yml'
+    
+    result = generate_diff(file1_path, file2_path)
+    
+    expected = """{
     common: {
       + follow: false
         setting1: Value 1
@@ -126,5 +130,50 @@ def test_generate_diff_nested_yaml():
         }
         fee: 100500
     }
-}'''
+}"""
+    
+    assert result == expected
+
+
+def test_generate_diff_plain_json():
+    """Test generate_diff with plain format for JSON files."""
+    file1_path = 'tests/fixtures/nested_file1.json'
+    file2_path = 'tests/fixtures/nested_file2.json'
+    
+    result = generate_diff(file1_path, file2_path, 'plain')
+    
+    expected = """Property 'common.follow' was added with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]"""
+    
+    assert result == expected
+
+
+def test_generate_diff_plain_yaml():
+    """Test generate_diff with plain format for YAML files."""
+    file1_path = 'tests/fixtures/nested_file1.yml'
+    file2_path = 'tests/fixtures/nested_file2.yml'
+    
+    result = generate_diff(file1_path, file2_path, 'plain')
+    
+    expected = """Property 'common.follow' was added with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]"""
+    
     assert result == expected

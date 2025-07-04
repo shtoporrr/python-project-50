@@ -177,3 +177,24 @@ Property 'group2' was removed
 Property 'group3' was added with value: [complex value]"""
     
     assert result == expected
+
+
+def test_generate_diff_json_format():
+    """Test generate_diff with json format."""
+    import json
+    
+    file1_path = 'tests/fixtures/nested_file1.json'
+    file2_path = 'tests/fixtures/nested_file2.json'
+    
+    result = generate_diff(file1_path, file2_path, 'json')
+    
+    # Verify that result is valid JSON
+    parsed_result = json.loads(result)
+    assert isinstance(parsed_result, list)
+    
+    # Verify structure contains expected diff nodes
+    assert len(parsed_result) > 0
+    for node in parsed_result:
+        assert 'key' in node
+        assert 'type' in node
+        assert node['type'] in ['added', 'removed', 'unchanged', 'changed', 'nested']

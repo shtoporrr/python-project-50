@@ -12,7 +12,7 @@ A command-line utility that determines the difference between two configuration 
 
 - **Recursive comparison**: Supports nested JSON and YAML structures
 - **Multiple formats**: JSON and YAML file support
-- **Multiple output formats**: Stylish (default) and Plain formats
+- **Multiple output formats**: Stylish (default), Plain, and JSON formats
 - **Structured output**: Clean, readable diff format with proper indentation
 - **Modular architecture**: Separated diff building from formatting for extensibility
 
@@ -32,6 +32,9 @@ gendiff filepath1.json filepath2.json
 
 # Plain format
 gendiff --format plain filepath1.json filepath2.json
+
+# JSON format
+gendiff --format json filepath1.json filepath2.json
 ```
 
 ### Python API
@@ -45,6 +48,10 @@ print(diff)
 
 # Plain format
 diff = generate_diff(file_path1, file_path2, 'plain')
+print(diff)
+
+# JSON format
+diff = generate_diff(file_path1, file_path2, 'json')
 print(diff)
 ```
 
@@ -177,3 +184,16 @@ Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]
 ```
+
+**JSON format output:**
+
+The JSON format provides a structured representation of the diff tree that can be easily processed by other programs:
+
+[![asciicast](https://asciinema.org/a/AS6wAwOC3QfAukOAFu87xxae5.svg)](https://asciinema.org/a/AS6wAwOC3QfAukOAFu87xxae5)
+
+The JSON output contains an array of diff nodes, where each node has:
+- `key`: The property name
+- `type`: One of 'added', 'removed', 'unchanged', 'changed', or 'nested'
+- `value`: For added/removed/unchanged nodes
+- `old_value`/`new_value`: For changed nodes
+- `children`: For nested nodes containing child diff nodes

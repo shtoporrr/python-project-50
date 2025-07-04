@@ -61,11 +61,16 @@ Here's a demonstration of comparing flat JSON files (Step 4 functionality):
 
 [![asciicast](https://asciinema.org/a/1N7W4roY1Le6h4TRfb0b45pxJ.svg)](https://asciinema.org/a/1N7W4roY1Le6h4TRfb0b45pxJ)
 
+And here's the same functionality with YAML files (Step 6 functionality):
+
+[![asciicast](https://asciinema.org/a/aJPdQnhfCaLE4epnaUyGgTXWT.svg)](https://asciinema.org/a/aJPdQnhfCaLE4epnaUyGgTXWT)
+
 The output shows:
 - `-` prefix for keys that exist only in the first file or have different values
 - `+` prefix for keys that exist only in the second file or have new values  
 - No prefix for keys that exist in both files with identical values
 - Changed values (like `timeout`) show both old and new values with respective prefixes
+- Both JSON and YAML files produce identical output format
 
 ### Example with nested structures
 

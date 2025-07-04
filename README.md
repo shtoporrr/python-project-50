@@ -59,11 +59,20 @@ print(diff)
 
 Here's a demonstration of comparing flat JSON files (Step 4 functionality):
 
-[![asciicast](https://asciinema.org/a/1N7W4roY1Le6h4TRfb0b45pxJ.svg)](https://asciinema.org/a/1N7W4roY1Le6h4TRfb0b45pxJ)
+[![asciicast](https://asciinema.org/a/AKrpRE9FkIQjq3SlHJBR0HQYf.svg)](https://asciinema.org/a/AKrpRE9FkIQjq3SlHJBR0HQYf)
 
 And here's the same functionality with YAML files (Step 6 functionality):
 
-[![asciicast](https://asciinema.org/a/aJPdQnhfCaLE4epnaUyGgTXWT.svg)](https://asciinema.org/a/aJPdQnhfCaLE4epnaUyGgTXWT)
+[![asciicast](https://asciinema.org/a/CPIJgQXSgUl48YYRqgPKsxpIO.svg)](https://asciinema.org/a/CPIJgQXSgUl48YYRqgPKsxpIO)
+
+Step 7:
+[![asciicast](https://asciinema.org/a/On8Yg4dey0nBLVJemXeWymXJy.svg)](https://asciinema.org/a/On8Yg4dey0nBLVJemXeWymXJy)
+
+Step 8:
+[![asciicast](https://asciinema.org/a/4M5l4QSHnaZrxA5GUaNJZEi1s.svg)](https://asciinema.org/a/4M5l4QSHnaZrxA5GUaNJZEi1s)
+
+Step 9:
+[![asciicast](https://asciinema.org/a/5MmwQmKwdbufho7p4oQ15Zeyo.svg)](https://asciinema.org/a/5MmwQmKwdbufho7p4oQ15Zeyo)
 
 The output shows:
 - `-` prefix for keys that exist only in the first file or have different values

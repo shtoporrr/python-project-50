@@ -1,7 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/shtoporrr/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/shtoporrr/python-project-50/actions)
-[![Maintainability](https://qlty.sh/badges/e6e05074-620c-46f8-a1da-8e3ea73cb832/maintainability.svg)](https://qlty.sh/gh/shtoporrr/projects/python-project-50)
-[![Test Coverage](https://qlty.sh/badges/e6e05074-620c-46f8-a1da-8e3ea73cb832/test_coverage.svg)](https://qlty.sh/gh/shtoporrr/projects/python-project-50)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=shtoporrr_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=shtoporrr_python-project-50)
 [![Python CI](https://github.com/shtoporrr/python-project-50/actions/workflows/python-ci.yml/badge.svg)](https://github.com/shtoporrr/python-project-50/actions/workflows/python-ci.yml)
 
 # Difference Generator (Gendiff)

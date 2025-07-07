@@ -1,10 +1,12 @@
-import pytest
 from gendiff.scripts.gendiff import generate_diff
 
 
 def test_generate_diff_json():
     """Test generate_diff function with JSON files."""
-    result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json')
+    result = generate_diff(
+        'tests/fixtures/file1.json',
+        'tests/fixtures/file2.json'
+    )
     expected = '''{
   - follow: false
     host: hexlet.io
@@ -18,7 +20,10 @@ def test_generate_diff_json():
 
 def test_generate_diff_yaml():
     """Test generate_diff function with YAML files."""
-    result = generate_diff('tests/fixtures/file1.yml', 'tests/fixtures/file2.yml')
+    result = generate_diff(
+        'tests/fixtures/file1.yml',
+        'tests/fixtures/file2.yml'
+    )
     expected = '''{
   - follow: false
     host: hexlet.io
@@ -32,7 +37,10 @@ def test_generate_diff_yaml():
 
 def test_generate_diff_nested_json():
     """Test generate_diff function with nested JSON files."""
-    result = generate_diff('tests/fixtures/nested_file1.json', 'tests/fixtures/nested_file2.json')
+    result = generate_diff(
+        'tests/fixtures/nested_file1.json',
+        'tests/fixtures/nested_file2.json'
+    )
     expected = '''{
     common: {
       + follow: false
@@ -197,4 +205,6 @@ def test_generate_diff_json_format():
     for node in parsed_result:
         assert 'key' in node
         assert 'type' in node
-        assert node['type'] in ['added', 'removed', 'unchanged', 'changed', 'nested']
+        assert node['type'] in [
+            'added', 'removed', 'unchanged', 'changed', 'nested'
+        ]
